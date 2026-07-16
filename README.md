@@ -899,22 +899,19 @@ index=web_logs sourcetype="sys_log"
 Detects wordlist scanning based on high 404 volume from a single source in a short window.
 
 ```spl
-index=web_logs (sourcetype="syslog" OR sourcetype="sys_log") "apache_access"
-| rex field=_raw "apache_access:\s+(?P<src_ip>[^\s-]+)"
-| rex field=_raw "\"(?:GET|POST)\s(?P<full_uri>\S+)\sHTTP"
-| rex field=_raw "\" HTTP\/\d\.\d\"\s+(?P<status>\d{3})"
-| where status="404"
+index=web_logs sourcetype=sys_log "apache_access"
+| rex field=_raw "apache_access:\s+(?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| rex field=_raw "\"(?<method>GET|POST)\s+(?<uri>\S+)\s+HTTP"
+| rex field=_raw "HTTP\/\d\.\d\"\s+(?<status>\d{3})"
 | bucket _time span=1m
-| stats 
-    count as total_404_clicks, 
-    dc(full_uri) as unique_paths_tested, 
-    values(full_uri) as scanned_paths_sample 
-    by src_ip, _time
-| where total_404_clicks > 40
-| eval detection_type = "High-Volume Directory Enumeration"
-| eval scan_velocity = tostring(total_404_clicks) + " requests/min"
-| sort -total_404_clicks
-| table _time, src_ip, total_404_clicks, unique_paths_tested, scan_velocity, detection_type, scanned_paths_sample
+| stats count as total_requests
+        count(eval(status="404")) as errors404
+        dc(uri) as unique_paths
+        values(uri) as sample_paths
+        by src_ip _time
+| where errors404>20 AND unique_paths>20
+| eval attack="Directory Enumeration"
+| table _time src_ip total_requests errors404 unique_paths attack sample_paths
 ```
 
 ---
