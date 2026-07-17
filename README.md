@@ -24,8 +24,7 @@
 | 6 | [Splunk Detection Query Library](#6-splunk-detection-query-library) |
 | 7 | [Alerting & Dashboard](#7-alerting--dashboard) |
 | 8 | [MITRE ATT&CK Mapping](#8-mitre-attck-mapping) |
-| 9 | [Incident Triage Walkthroughs](#9-incident-triage-walkthroughs) |
-| 10 | [References](#13-references) |
+| 9 | [References](#13-references) |
 
 ---
 
@@ -63,7 +62,6 @@ This project was designed to build and demonstrate the practical skills expected
 [x] Web attack pattern recognition in Apache access logs
 [x] Splunk SPL query writing for detection engineering
 [x] MITRE ATT&CK framework alignment
-[x] Incident triage and investigation workflow
 [x] Alert configuration and scheduling in Splunk
 [x] SOC dashboard design
 [x] Technical documentation at runbook standard
@@ -76,7 +74,6 @@ Every section maps directly to skills tested in SOC analyst interviews and used 
 
 - **Web attack patterns** — recognizing SQLi, XSS, and LFI in logs is a day-one L1 analyst requirement
 - **Splunk SPL** — Splunk is the dominant enterprise SIEM; writing SPL is the core analyst task
-- **Incident triage** — documented walkthroughs show the analyst thought process, not just tool commands
 - **MITRE mapping** — all modern SOC operations use ATT&CK for categorization, reporting, and coverage tracking
 
 ---
