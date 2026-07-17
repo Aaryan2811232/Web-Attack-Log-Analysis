@@ -25,7 +25,7 @@
 | 7 | [Alerting & Dashboard](#7-alerting--dashboard) |
 | 8 | [MITRE ATT&CK Mapping](#8-mitre-attck-mapping) |
 | 9 | [Incident Triage Walkthroughs](#9-incident-triage-walkthroughs) |
-| 13 | [References](#13-references) |
+| 10 | [References](#13-references) |
 
 ---
 
@@ -1059,62 +1059,7 @@ Email Subject : [MEDIUM] Directory Scan — $result.not_found_count$ 404s from $
 
 ### 8.2 Dashboard Layout
 
-The SOC Dashboard in Splunk provides a real-time single-panel view of all lab activity.
-
-**Create dashboard:** Dashboards → Create New Dashboard → Classic Dashboards
-
-```
-+--------------------------------------------------------------+
-|   SOC LAB — Security Monitoring Dashboard                    |
-|   [Time: Last 24h]  [Auto-refresh: 5 min]                    |
-+--------------------------------------------------------------+
-|                                                              |
-|  [ Events by Category — Column Chart ]   [ Active Alerts ]   |
-|    SQLi / XSS / LFI / BruteForce /        Alert | Sev | IP   |
-|    DirEnum / WinFail / WinProcess                            |
-|                                                              |
-+--------------------------------------------------------------+
-|                                                              |
-|  [ Attack Timeline — Line Chart ]   [ Top Source IPs ]       |
-|    Events per 30min by category      IP | Count | Last Seen  |
-|                                                              |
-+--------------------------------------------------------------+
-|                                                              |
-|  [ HTTP Status Breakdown ]   [ Windows Event ID Breakdown ]  |
-|    2xx / 3xx / 4xx / 5xx      4624 / 4625 / 4688 by hour     |
-|                                                              |
-+--------------------------------------------------------------+
-```
-
-**Each panel uses one of the detection queries above as its data source.**
-
-Panel configuration example — Events by Category:
-
-```xml
-<panel>
-  <title>Attack Event Categories — Last 24h</title>
-  <chart>
-    <search>
-      <query>
-        (index=web_logs OR index=wineventlog)
-        | eval category = case(
-            match(_raw,"(?i)(union.*select|sqlmap)"), "SQL Injection",
-            match(_raw,"(?i)(<script|onerror|xss)"), "XSS",
-            match(_raw,"(?i)(\.\./|etc/passwd)"), "LFI",
-            EventCode="4625", "Win: Failed Login",
-            EventCode="4688" AND match(_raw,"(?i)(-enc|certutil|mshta)"), "Win: Suspicious Process",
-            status="404", "Dir Enumeration",
-            true(), "Other")
-        | stats count by category
-        | sort -count
-      </query>
-      <earliest>-24h@h</earliest>
-      <latest>now</latest>
-    </search>
-    <option name="charting.chart">column</option>
-    <option name="charting.chart.showDataLabels">all</option>
-  </chart>
-</panel>
+-----------------------------------REMAINING----------------------------------
 ```
 
 ---
@@ -1178,7 +1123,7 @@ COLLECTION
 
 ---
 
-## 13. References
+## 10. References
 
 ### Lab Tools & Documentation
 
