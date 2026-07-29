@@ -3,7 +3,7 @@
 > Simulate six real-world web attacks against DVWA on Metasploitable 2, forward Apache logs to Splunk, and build detection queries to identify SQLi, XSS, LFI, brute force, directory enumeration, and encoded payloads.
 
 [![Attacker](https://img.shields.io/badge/Attacker-Kali%20Linux-557C94?style=flat-square&logo=kalilinux&logoColor=white)](https://www.kali.org/)
-[![SIEM](https://img.shields.io/badge/SIEM-Splunk%20Enterprise%209.x-FF6B35?style=flat-square)](https://www.splunk.com/)
+[![SIEM](https://img.shields.io/badge/SIEM-Splunk%20Enterprise%2010.2.1-FF6B35?style=flat-square)](https://www.splunk.com/)
 [![Target](https://img.shields.io/badge/Web%20Target-Metasploitable%202-CC0000?style=flat-square)]()
 [![Framework](https://img.shields.io/badge/Framework-MITRE%20ATT%26CK%20v14-E3001B?style=flat-square)](https://attack.mitre.org/)
 [![Status](https://img.shields.io/badge/Status-Complete-2ea44f?style=flat-square)]()
@@ -144,13 +144,11 @@ INDEXES IN SPLUNK (on Kali 192.168.1.3:8000)
 |---|---|---|
 | Kali Linux | 2026.3 | Attacker OS + SIEM host |
 | Splunk Enterprise | 10.2.1 | Primary SIEM — detection, alerting, dashboards |
-
 | sqlmap | 1.10.6 | Automated SQL injection |
 | Hydra | 9.7 | Network login brute force |
 | Gobuster | 3.8.2 | Directory enumeration |
 | wfuzz | 3.1.0 | Web parameter fuzzing |
 | Nikto | 2.1.6 | Web server vulnerability scanner |
-
 | CrackMapExec | 5.4.0 | SMB brute force and Windows enumeration |
 | Impacket | 0.11.0 | PsExec lateral movement simulation |
 | netcat | 1.10 | Listener for reverse connections |
